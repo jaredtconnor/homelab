@@ -1,14 +1,24 @@
-version: '3.6'
+name: wireguard 
 services:
-  wg-portal:
-    image: wgportal/wg-portal:v2
-    restart: unless-stopped
-    cap_add:
-      - NET_ADMIN
-    network_mode: "host"
-    ports:
-      - "8888:8888"
-    volumes:
-      - /etc/wireguard:/etc/wireguard
-      - ./data:/app/data
-      - ./config:/app/config
+    wireguard:
+        container_name: wireguard
+        cap_add:
+            - NET_ADMIN
+            - SYS_MODULE
+        network_mode: host
+        environment:
+            - PUID=1000
+            - PGID=1000
+            - TZ=America/Los_Angeles
+            - SERVERURL=vpn.overindex.co
+            - SERVERPORT=51820
+            - PEERS=2
+            - PEERDNS=auto
+            - INTERNAL_SUBNET=192.168.2.0
+            - ALLOWEDIPS=192.168.1.0\24
+            - LOG_CONFS=true
+        volumes:
+            - /etc/wireguard:/config
+            - /lib/modules:/lib/modules
+        restart: unless-stopped
+        image: linuxserver/wireguard
