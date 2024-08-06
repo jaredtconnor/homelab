@@ -1,24 +1,35 @@
-name: wireguard 
+version: "3"
+
 services:
-    wireguard:
-        container_name: wireguard
-        cap_add:
-            - NET_ADMIN
-            - SYS_MODULE
-        network_mode: host
-        environment:
-            - PUID=1000
-            - PGID=1000
-            - TZ=America/Los_Angeles
-            - SERVERURL=vpn.overindex.co
-            - SERVERPORT=51820
-            - PEERS=2
-            - PEERDNS=auto
-            - INTERNAL_SUBNET=192.168.2.0
-            - ALLOWEDIPS=192.168.1.0\24
-            - LOG_CONFS=true
-        volumes:
-            - /etc/wireguard:/config
-            - /lib/modules:/lib/modules
-        restart: unless-stopped
-        image: linuxserver/wireguard
+
+  wireguard:
+    image: linuxserver/wireguard:v1.0.20210914-ls7 #Use this image, latest seems to have issues
+    container_name: wireguard
+    cap_add:
+      - NET_ADMIN
+    volumes:
+      - ./config:/config
+    ports:
+      - "5000:5000"
+      - "51820:51820/udp"
+
+  wireguard-ui:
+    image: ngoduykhanh/wireguard-ui:latest
+    container_name: wireguard-ui
+    depends_on:
+      - wireguard
+    cap_add:
+      - NET_ADMIN
+    network_mode: service:wireguard
+    environment:
+      - WGUI_USERNAME=${WGUI_USERNAME}
+      - WGUI_PASSWORD=${WGUI_PASSWORD}
+      - WGUI_MANAGE_START=true
+      - WGUI_MANAGE_RESTART=true
+    logging:
+      driver: json-file
+      options:
+        max-size: 50m
+    volumes:
+      - ./db:/app/db
+      - ./config:/etc/wireguard

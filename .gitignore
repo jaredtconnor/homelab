@@ -4,3 +4,6 @@
 # Ignore all common env files
 .env.local
 .env.*.local
+apps/ngnix-proxy-manager/data
+apps/wireguard/config
+apps/wireguard/db
