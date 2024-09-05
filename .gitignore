@@ -10,3 +10,11 @@ apps/wireguard/db
 apps/wg-portal/data/wg_portal.db
 apps/ngnix-proxy-manager/letsencrypt/renewal/npm-1.conf
 apps/ngnix-proxy-manager/letsencrypt/credentials/credentials-1
+apps/networking/ngnix-proxy-manager/data
+apps/networking/ngnix-proxy-manager/letsencrypt/credentials
+apps/networking/ngnix-proxy-manager/letsencrypt/renewal/npm-1.conf
+apps/networking/wg-portal/data
+apps/networking/wg-portal
+apps/networking/wireguard/config
+apps/networking/wireguard/db/server
+apps/networking/wireguard/db/users/jaredconnor.json
