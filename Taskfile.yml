@@ -1,0 +1,7 @@
+version: '1'
+
+tasks: 
+  hello: 
+    cmds: 
+      - echo 'Hello World from Task!'
+    slient: true
