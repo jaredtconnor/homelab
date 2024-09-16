@@ -1,7 +1,28 @@
-version: '1'
+version: '3'
 
-tasks: 
-  hello: 
-    cmds: 
-      - echo 'Hello World from Task!'
-    slient: true
+tasks:
+  install:
+    desc: Install services by group or service
+    cmds:
+      - echo "Starting $group services"
+      - |
+        set -e
+        group="{{ if gt (len .CLI_ARGS) 0 }}{{ index .CLI_ARGS 0 }}{{ else }}all{{ end }}"
+        service="{{ if gt (len .CLI_ARGS) 1 }}{{ index .CLI_ARGS 1 }}{{ else }}all{{ end }}"
+        if [ "$group" = "all" ]; then
+          echo "Starting all services..."
+          docker compose $(find apps -type f -name 'docker-compose.yml' -printf '-f %p ') up -d
+        elif [ "$service" = "all" ]; then
+          echo "Starting all services in group '$group'..."
+          docker compose -f docker-compose.yml $(find apps/$group -type f -name 'docker-compose.yml' -printf '-f %p ') up -d
+        else
+          service_compose="apps/$group/$service/docker-compose.yml"
+          if [ -f "$service_compose" ]; then
+            echo "Starting service '$service' in group '$group'..."
+            docker compose -f docker-compose.yml -f "$service_compose" up -d
+          else
+            echo "Service '$service' in group '$group' does not exist."
+            exit 1
+          fi
+        fi
+
