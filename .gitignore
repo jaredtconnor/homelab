@@ -18,3 +18,7 @@ apps/networking/wg-portal
 apps/networking/wireguard/config
 apps/networking/wireguard/db/server
 apps/networking/wireguard/db/users/jaredconnor.json
+apps/automation/homeassistant/.storage
+apps/automation/homeassistant/blueprints
+apps/system/homarr/homarr/configs
+apps/system/homarr/homarr/data
