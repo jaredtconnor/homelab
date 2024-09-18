@@ -10,8 +10,15 @@ services:
       - postgres_data:/var/lib/postgresql/data
     ports:
       - "${HOST_PORT}:5432"
-    restart: unless-stopped
+    restart: unless-stopped 
+    networks:
+      - backend
 
 volumes:
   postgres_data:
-    driver: local
+    driver: local 
+
+networks: 
+  backend:
+    external: true
+    name: backend

@@ -72,3 +72,4 @@ apps/media/aar/MediaCenter/config/overseerr/config
 apps/media/aar/MediaCenter/config/plex/db/Library/Application Support/Plex Media Server
 apps/media/aar/MediaCenter/config/radarr/logs.db-shm
 apps/media/aar/MediaCenter/config/radarr/logs.db-wal
+apps/media/wallabag/data

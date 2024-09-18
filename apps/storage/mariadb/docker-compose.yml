@@ -11,8 +11,19 @@ services:
       - mariadb_data:/var/lib/mysql
     ports:
       - "${HOST_PORT}:3306"
-    restart: unless-stopped
+    restart: unless-stopped 
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      interval: 20s
+      timeout: 3s 
+    networks:
+    - backend
 
 volumes:
   mariadb_data:
-    driver: local
+    driver: local 
+
+networks: 
+  backend:
+    external: true
+    name: backend

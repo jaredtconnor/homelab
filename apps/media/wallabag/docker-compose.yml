@@ -1,0 +1,49 @@
+services:
+  wallabag:
+    image: wallabag/wallabag
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - SYMFONY__ENV__DATABASE_DRIVER=pdo_mysql
+      - SYMFONY__ENV__DATABASE_HOST=db
+      - SYMFONY__ENV__DATABASE_PORT=3306
+      - SYMFONY__ENV__DATABASE_NAME=${MYSQL_DATABASE}
+      - SYMFONY__ENV__DATABASE_USER=${MYSQL_USER}
+      - SYMFONY__ENV__DATABASE_PASSWORD=${MYSQL_PASSWORD}
+      - SYMFONY__ENV__DATABASE_CHARSET=utf8mb4
+      - SYMFONY__ENV__DATABASE_TABLE_PREFIX=${WALLABAG_TABLE_PREFIX}
+      - SYMFONY__ENV__MAILER_DSN=${MAILER_DSN}
+      - SYMFONY__ENV__FROM_EMAIL=${FROM_EMAIL}
+      - SYMFONY__ENV__DOMAIN_NAME=${DOMAIN_NAME}
+      - SYMFONY__ENV__SERVER_NAME=${SERVER_NAME}
+    ports:
+      - "${WALLABAG_PORT}:80"
+    volumes:
+      - ${WALLABAG_IMAGES_DIR}:/var/www/wallabag/web/assets/images
+    healthcheck:
+      test: ["CMD", "wget" ,"--no-verbose", "--tries=1", "--spider", "http://localhost/api/info"]
+      interval: 1m
+      timeout: 3s
+    depends_on:
+      - redis 
+    networks: 
+      - backend
+
+  redis:
+    image: redis:alpine
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 20s
+      timeout: 3s 
+    networks:
+      - backend
+
+volumes:
+  mariadb_data:
+    driver: local 
+
+networks:
+  backend: 
+    external: true
+    name: backend
