@@ -9,7 +9,7 @@ services:
       #   - SYS_MODULE
     restart: unless-stopped
     volumes:
-      - '${ROOT}/MediaCenter/config/vpn:/vpn'
+      - '${ROOT}/config/vpn:/vpn'
       - /lib/modules:/lib/modules
     security_opt:
       - 'label:disable'
@@ -28,7 +28,7 @@ services:
       - 'PGID=${PGID}'
       - 'TZ=${TZ}'
     volumes:
-      - '${ROOT}/MediaCenter/config/deluge:/config'
+      - '${ROOT}/config/deluge:/config'
       - '${HDDSTORAGE}:/MediaCenterBox'
     #ports:
     #  - '8112:8112' #uncomment if you are not using the VPN
@@ -44,7 +44,7 @@ services:
       - PGID=1000
       - 'TZ=${TZ}'
     volumes:
-      - '${ROOT}/MediaCenter/config/prowlarr:/config'
+      - '${ROOT}/config/prowlarr:/config'
     restart: unless-stopped
     # ports:
       # - '9696:9696' #uncomment if you are not using the VPN
@@ -60,7 +60,7 @@ services:
       - 'TZ=${TZ}'
     volumes:
       - '/etc/localtime:/etc/localtime:ro'
-      - '${ROOT}/MediaCenter/config/sonarr:/config'
+      - '${ROOT}/config/sonarr:/config'
       - '${HDDSTORAGE}:/MediaCenterBox'
   radarr:
     container_name: radarr
@@ -73,7 +73,7 @@ services:
       - 'TZ=${TZ}'
     volumes:
       - '/etc/localtime:/etc/localtime:ro'
-      - '${ROOT}/MediaCenter/config/radarr:/config'
+      - '${ROOT}/config/radarr:/config'
       - '${HDDSTORAGE}:/MediaCenterBox'
       
   bazarr:
@@ -87,7 +87,7 @@ services:
       - 'TZ=${TZ}'
       - UMASK_SET=022
     volumes:
-      - '${ROOT}/MediaCenter/config/bazarr:/config'
+      - '${ROOT}/config/bazarr:/config'
       - '${HDDSTORAGE}:/MediaCenterBox'
     ports:
       - '6767:6767'
@@ -100,13 +100,25 @@ services:
       - 'TZ=${TZ}'
     network_mode: host
     volumes:
-      - '${ROOT}/MediaCenter/config/plex/db:/config'
-      - '${ROOT}/MediaCenter/config/plex/transcode:/transcode'
+      - '${ROOT}/config/plex/db:/config'
+      - '${ROOT}/config/plex/transcode:/transcode'
       - '${HDDSTORAGE}/Completed:/MediaCenterBox'
 
+  jellyfin:
+      container_name: jellyfin
+      image: jellyfin/jellyfin:latest
+      environment:
+        - 'PUID=${PUID}'
+        - 'PGID=${PGID}'
+        - 'TZ=${TZ}'
+      volumes:
+        - '${ROOT}/config/jellyfin:/config'
+        - '${HDDSTORAGE}:/MediaCenterBox'
+      ports:
+        - '8096:8096'
+      restart: unless-stopped
 
 ### Optional Containers
-
   wireguard:
     image: ghcr.io/linuxserver/wireguard:latest
     container_name: wireguard
@@ -124,7 +136,7 @@ services:
       - INTERNAL_SUBNET=172.168.69.0 #optional, network for devices ips. CAN NOT be the same as your home network
       - ALLOWEDIPS=0.0.0.0/0 #optional
     volumes:
-      - ${ROOT}/MediaCenter/config/wireguard:/config # config folder
+      - ${ROOT}/config/wireguard:/config # config folder
       - /lib/modules:/lib/modules
     ports:
       - 51820:51820/udp
@@ -141,5 +153,5 @@ services:
     ports:
       - '5055:5055'
     volumes:
-      - '${ROOT}/MediaCenter/config/overseerr/config:/app/config'
+      - '${ROOT}/config/overseerr/config:/app/config'
     restart: unless-stopped
