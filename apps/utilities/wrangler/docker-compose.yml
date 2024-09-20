@@ -1,0 +1,27 @@
+services:
+
+  wrangler:
+    image: noah231515/receipt-wrangler:latest
+    entrypoint: ./entrypoint.sh
+    restart: always
+    volumes:
+      - ./data:/app/receipt-wrangler-api/data
+      - ./logs:/app/receipt-wrangler-api/logs
+    environment:
+      - ENCRYPTION_KEY=${ENCRYPTION_KEY}
+      - SECRET_KEY=${SECRET_KEY}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_NAME=${DB_NAME}
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+      - DB_ENGINE=${DB_ENGINE}
+    ports:
+      - 9082:80
+    networks:
+        - backend
+
+networks:
+  backend: 
+    external: true
+    name: backend

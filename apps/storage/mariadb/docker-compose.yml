@@ -8,7 +8,7 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
-      - mariadb_data:/var/lib/mysql
+      - data:/var/lib/mysql
     ports:
       - "${HOST_PORT}:3306"
     restart: unless-stopped 
@@ -20,7 +20,7 @@ services:
     - backend
 
 volumes:
-  mariadb_data:
+  data:
     driver: local 
 
 networks: 

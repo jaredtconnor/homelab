@@ -73,3 +73,5 @@ apps/media/aar/MediaCenter/config/plex/db/Library/Application Support/Plex Media
 apps/media/aar/MediaCenter/config/radarr/logs.db-shm
 apps/media/aar/MediaCenter/config/radarr/logs.db-wal
 apps/media/wallabag/data
+apps/utilities/wrangler/logs
+apps/utilities/wrangler/logs/app.log
