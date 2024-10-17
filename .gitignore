@@ -75,3 +75,7 @@ apps/media/aar/MediaCenter/config/radarr/logs.db-wal
 apps/media/wallabag/data
 apps/utilities/wrangler/logs
 apps/utilities/wrangler/logs/app.log
+apps/media/aar/config
+apps/media/aar/base
+apps/media/aar/CODE_OF_CONDUCT.org
+apps/media/aar/CONTRIBUTING.org
