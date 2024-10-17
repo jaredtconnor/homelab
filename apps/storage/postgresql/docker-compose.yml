@@ -13,6 +13,7 @@ services:
     restart: unless-stopped 
     networks:
       - backend
+      - storage
 
 volumes:
   data:
@@ -21,6 +22,9 @@ volumes:
 networks: 
   backend:
     external: true
-    name: backend 
+    name: backend  
+  storage:
+    external: true
+    name: storage
 
 

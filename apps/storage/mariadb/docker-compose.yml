@@ -11,19 +11,24 @@ services:
       - data:/var/lib/mysql
     ports:
       - "${HOST_PORT}:3306"
-    restart: unless-stopped 
+    restart: unless-stopped
     healthcheck:
-      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 20s
-      timeout: 3s 
+      timeout: 3s
     networks:
-    - backend
+      - backend 
+      - storage
 
 volumes:
   data:
-    driver: local 
+    driver: local
 
-networks: 
+networks:
   backend:
     external: true
     name: backend
+  storage:
+    external: true
+    name: storage 
+
