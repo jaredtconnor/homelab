@@ -1,13 +1,26 @@
-version: "2.1" 
 services:
-  app: 
-    image: jc21/nginx-proxy-manager:latest
-    container_name: nginx-proxy 
-    volumes: 
+  app:
+    image: 'jc21/nginx-proxy-manager:latest'
+    restart: unless-stopped
+    ports:
+      - '80:80'    # Public HTTP Port
+      - '443:443'  # Public HTTPS Port
+      - '81:81'    # Admin Web Port
+    environment:
+      DB_MYSQL_HOST: ${DB_MYSQL_HOST}          # Reference from .env file
+      DB_MYSQL_PORT: ${DB_MYSQL_PORT}          # Reference from .env file
+      DB_MYSQL_USER: ${DB_MYSQL_USER}          # Reference from .env file
+      DB_MYSQL_PASSWORD: ${DB_MYSQL_PASSWORD}  # Reference from .env file
+      DB_MYSQL_NAME: ${DB_MYSQL_NAME}          # Reference from .env file
+    volumes:
       - ./data:/data
       - ./letsencrypt:/etc/letsencrypt
-    ports: 
-      - 80:80
-      - 443:443
-      - 81:81
-    restart: unless-stopped
+    networks:
+      - backend
+      - storage
+
+networks:
+  backend:
+    external: true
+  storage: 
+    external: true 
