@@ -4,6 +4,9 @@
 # Ignore all common env files
 .env.local
 .env.*.local
+apps/media/wallabag/data  
+
+# Networking
 apps/ngnix-proxy-manager/data
 apps/wireguard/config
 apps/wireguard/db
@@ -18,63 +21,16 @@ apps/networking/wg-portal
 apps/networking/wireguard/config
 apps/networking/wireguard/db/server
 apps/networking/wireguard/db/users/jaredconnor.json
+
+# Hoas
 apps/automation/homeassistant/.storage
 apps/automation/homeassistant/blueprints
-apps/system/homarr/homarr/configs
-apps/system/homarr/homarr/data
-apps/ui/homarr/configs
-apps/ui/homarr/data
-apps/media/aar/MediaCenter/config/wireguard/coredns
-apps/media/aar/MediaCenter/config/wireguard/peer1
-apps/media/aar/MediaCenter/config/wireguard/peer2
-apps/media/aar/MediaCenter/config/wireguard/peer3
-apps/media/aar/MediaCenter/config/wireguard/peer4
-apps/media/aar/MediaCenter/config/wireguard/peer5
-apps/media/aar/MediaCenter/config/wireguard/peer6
-apps/media/aar/MediaCenter/config/wireguard/peer7
-apps/media/aar/MediaCenter/config/wireguard/server
-apps/media/aar/MediaCenter/config/wireguard/templates
-apps/media/aar/MediaCenter/config/wireguard/wg_confs
-apps/media/aar/MediaCenter/config/wireguard/.donoteditthisfile
-apps/media/aar/MediaCenter/config/sonarr/Sentry/07ADDC43B5669C4F6DB64F2EF2B23B3FEEDFE865
-apps/media/aar/MediaCenter/config/sonarr/asp
-apps/media/aar/MediaCenter/config/sonarr/logs
-apps/media/aar/MediaCenter/config/sonarr/logs.db
-apps/media/aar/MediaCenter/config/sonarr/logs.db-shm
-apps/media/aar/MediaCenter/config/sonarr/logs.db-wal
-apps/media/aar/MediaCenter/config/sonarr/sonarr.db
-apps/media/aar/MediaCenter/config/sonarr/sonarr.db-shm
-apps/media/aar/MediaCenter/config/sonarr/sonarr.db-wal
-apps/media/aar/MediaCenter/config/sonarr/sonarr.pid
-apps/media/aar/MediaCenter/config/sonarr/config.xml
-apps/media/aar/MediaCenter/config/radarr/Sentry/E052B02F117E6BB423BE301CDA607148F4B3F8F6
-apps/media/aar/MediaCenter/config/radarr/asp
-apps/media/aar/MediaCenter/config/radarr/logs
-apps/media/aar/MediaCenter/config/radarr/config.xml
-apps/media/aar/MediaCenter/config/radarr/logs.db
-apps/media/aar/MediaCenter/config/radarr/radarr.db
-apps/media/aar/MediaCenter/config/radarr/radarr.db-shm
-apps/media/aar/MediaCenter/config/radarr/radarr.db-wal
-apps/media/aar/MediaCenter/config/radarr/radarr.pid
-apps/media/aar/MediaCenter/config/prowlarr/Definitions
-apps/media/aar/MediaCenter/config/prowlarr/Sentry/FDD003821460B16D4E0D4235129BD6BFAF29B751
-apps/media/aar/MediaCenter/config/prowlarr/asp
-apps/media/aar/MediaCenter/config/prowlarr/logs
-apps/media/aar/MediaCenter/config/prowlarr/config.xml
-apps/media/aar/MediaCenter/config/prowlarr/logs.db
-apps/media/aar/MediaCenter/config/prowlarr/prowlarr.db
-apps/media/aar/MediaCenter/config/prowlarr/prowlarr.db-shm
-apps/media/aar/MediaCenter/config/prowlarr/prowlarr.db-wal
-apps/media/aar/MediaCenter/config/prowlarr/prowlarr.pid
-apps/media/aar/MediaCenter/config/bazarr
-apps/media/aar/MediaCenter/config/deluge
-apps/media/aar/MediaCenter/config/overseerr/config
-apps/media/aar/MediaCenter/config/plex/db/Library/Application Support/Plex Media Server
-apps/media/aar/MediaCenter/config/radarr/logs.db-shm
-apps/media/aar/MediaCenter/config/radarr/logs.db-wal
-apps/media/wallabag/data
+
+# Utils
 apps/utilities/wrangler/logs
-apps/utilities/wrangler/logs/app.log
+apps/utilities/wrangler/logs/app.log 
+
+# Aar stack
 apps/media/aar/config
 apps/media/aar/base
 apps/media/aar/CODE_OF_CONDUCT.org
