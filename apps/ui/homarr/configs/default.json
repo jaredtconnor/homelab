@@ -1040,7 +1040,7 @@
         "enabledPing": false,
         "enabledSearchbar": true
       },
-      "pageTitle": "Homarr ⭐️",
+      "pageTitle": "HomeLab",
       "logoImageUrl": "/imgs/logo/logo.png",
       "faviconUrl": "/imgs/favicon/favicon-squared.png",
       "backgroundImageUrl": "",
@@ -1054,8 +1054,12 @@
       "gridstack": {
         "columnCountSmall": 3,
         "columnCountMedium": 6,
-        "columnCountLarge": 10
-      }
+        "columnCountLarge": 12
+      },
+      "backgroundImageAttachment": "fixed",
+      "backgroundImageRepeat": "no-repeat",
+      "backgroundImageSize": "cover",
+      "metaTitle": ""
     },
     "access": {
       "allowGuests": false
