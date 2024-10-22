@@ -35,3 +35,13 @@ apps/media/aar/config
 apps/media/aar/base
 apps/media/aar/CODE_OF_CONDUCT.org
 apps/media/aar/CONTRIBUTING.org
+apps/media/aar/bazarr
+apps/media/aar/jellyfin
+apps/media/aar/lidarr
+apps/media/aar/prowlarr
+apps/media/aar/qbittorrent/qBittorrent
+apps/media/aar/radarr
+apps/media/aar/rdt
+apps/media/aar/readarr
+apps/media/aar/sabnzbd
+apps/media/aar/sonarr
