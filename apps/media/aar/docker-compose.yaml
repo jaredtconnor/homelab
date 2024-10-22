@@ -16,8 +16,7 @@ services:
       - 8096:8096 # plex
     restart: unless-stopped 
     networks:
-      - media 
-
+      - media
 
   # qBitorrent is used to download torrents
   qbittorrent:
@@ -188,6 +187,6 @@ networks:
     name: backend
   media:
     external: true
-    name: storage 
+    name: media 
 
 
