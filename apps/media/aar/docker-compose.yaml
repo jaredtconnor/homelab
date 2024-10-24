@@ -11,8 +11,8 @@ services:
       - ${MEDIA_DIRECTORY}/movies:/data/movies
       - ${MEDIA_DIRECTORY}/tv:/data/tvshows
       - ${INSTALL_DIRECTORY}/jellyfin:/config
-    ports: # plex
-      - 8096:8096 # plex
+    ports:
+      - 8096:8096
     restart: unless-stopped 
     networks:
       - media
@@ -33,7 +33,6 @@ services:
       - 8388:8388/udp # Shadowsocks
       # other containers ports
       - "8080:8080"       # qbittorrent
-      - "8090:8080"       # sabnzbd
     volumes:
       - ${INSTALL_DIRECTORY}/gluetun:/config
     environment:
@@ -47,23 +46,25 @@ services:
       - media
       - backend
 
-  ############################################ 
-  # 
-  ############################################  
   sabnzbd:
     image: lscr.io/linuxserver/sabnzbd:latest
     container_name: sabnzbd
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=${PUID}
+      - PGID=${PGID}
       - TZ=America/Los_Angeles
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${INSTALL_DIRECTORY}/sabnzbd:/config
-      - ${MEDIA_DIRECTORY}/usenet:/data/usenet:rw
-    restart: unless-stopped
-    network_mode: "service:gluetun"
+      - ${MEDIA_DIRECTORY}/usenet:/data/usenet:rw 
+    ports:
+      - "8090:8080" # port mapping 
+    restart: unless-stopped 
+    networks:
+      - media 
+      - backend
 
+  # qBitorrent is used to download torrents
   qbittorrent:
     image: lscr.io/linuxserver/qbittorrent:4.6.0
     container_name: qbittorrent
@@ -72,7 +73,7 @@ services:
       - PGID=${PGID}
       - WEBUI_PORT=8080
     volumes:
-      - ${MEDIA_DIRECTORY}/torrents:/downloads
+      - ${MEDIA_DIRECTORY}/downloads:/downloads
       - ${INSTALL_DIRECTORY}/qbittorrent:/config
     restart: unless-stopped
     network_mode: "service:gluetun"
