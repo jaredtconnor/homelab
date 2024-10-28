@@ -8,8 +8,8 @@ services:
       - PGID=${PGID}
       - VERSION=docker
     volumes:
-      - ${MEDIA_DIRECTORY}/movies:/data/movies
-      - ${MEDIA_DIRECTORY}/tv:/data/tvshows
+      - ${MEDIA_DIRECTORY}/media/movies:/data/movies
+      - ${MEDIA_DIRECTORY}/media/tv:/data/tvshows
       - ${INSTALL_DIRECTORY}/jellyfin:/config
     ports:
       - 8096:8096
@@ -186,7 +186,8 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
     volumes:
-      - ${MEDIA_DIRECTORY}/books:/books
+      - ${MEDIA_DIRECTORY}/media/calibre-books:/calibre-books
+      - ${MEDIA_DIRECTORY}/media/books:/books
       - ${DOWNLOAD_INSTALL_DIR}:/downloads
       - ${INSTALL_DIRECTORY}/readarr:/config
     ports:
@@ -270,10 +271,12 @@ services:
       - PGID=${PGID} # Replace with your group ID
       - TZ=America/Los_Angeles # Replace with your timezone
     volumes:
-      - ${INSTALL_DIRECTORY}/calibre:/config/books # Replace with your Calibre library path
+      - ${MEDIA_DIRECTORY}/media/books:/config/books # Replace with your Calibre library path 
+      - ${MEDIA_DIRECTORY}/media/calibre-books:/config/calibre-books # Replace with your Calibre library path 
       - ${DOWNLOAD_INSTALL_DIR}:/downloads # Optional: for downloading books
     ports:
-      - 8010:8080 
+      - 8010:8080
+      - 8011:8081
     networks: 
       - media 
       - backend

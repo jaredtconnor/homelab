@@ -40,260 +40,6 @@
   ],
   "apps": [
     {
-      "id": "2bf85509-d947-4aca-aa33-76a9cb324039",
-      "name": "Lidarr",
-      "url": "http://docker.local.jcdev.io:8686",
-      "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/lidarr.svg",
-        "appNameStatus": "normal",
-        "positionAppName": "column",
-        "lineClampAppName": 1,
-        "appNameFontSize": 16
-      },
-      "network": {
-        "enabledStatusChecker": true,
-        "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
-        ]
-      },
-      "behaviour": {
-        "isOpeningNewTab": true,
-        "externalUrl": "http://docker.local.jcdev.io:8686/"
-      },
-      "area": {
-        "type": "category",
-        "properties": {
-          "id": "e1853f76-29f4-4d94-9f23-2d9c8f6aca06"
-        }
-      },
-      "shape": {
-        "lg": {
-          "location": {
-            "x": 6,
-            "y": 0
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        },
-        "md": {
-          "location": {
-            "x": 0,
-            "y": 0
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        }
-      },
-      "integration": {
-        "type": "lidarr",
-        "properties": [
-          {
-            "field": "apiKey",
-            "type": "private",
-            "value": "4ed0cdbf1bea4ae08cd56e805809117c"
-          }
-        ]
-      }
-    },
-    {
-      "id": "2804d5ab-fd39-41e9-b580-1acc2f80d574",
-      "name": "Prowlarr",
-      "url": "http://docker.local.jcdev.io:9696/settings/general",
-      "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/prowlarr.svg",
-        "appNameStatus": "normal",
-        "positionAppName": "column",
-        "lineClampAppName": 1,
-        "appNameFontSize": 16
-      },
-      "network": {
-        "enabledStatusChecker": true,
-        "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
-        ]
-      },
-      "behaviour": {
-        "isOpeningNewTab": true,
-        "externalUrl": "http://docker.local.jcdev.io:9696/settings/general"
-      },
-      "area": {
-        "type": "category",
-        "properties": {
-          "id": "e1853f76-29f4-4d94-9f23-2d9c8f6aca06"
-        }
-      },
-      "shape": {
-        "md": {
-          "location": {
-            "x": 1,
-            "y": 0
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        },
-        "lg": {
-          "location": {
-            "x": 7,
-            "y": 0
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        }
-      },
-      "integration": {
-        "type": "prowlarr",
-        "properties": [
-          {
-            "field": "apiKey",
-            "type": "private",
-            "value": "678f36ff760a432f80c5b0a1ee29c6f6"
-          }
-        ]
-      }
-    },
-    {
-      "id": "b4ab8b2b-0542-45de-953e-a8df227b76ba",
-      "name": "Radarr",
-      "url": "http://docker.local.jcdev.io:7878/settings/general",
-      "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/radarr.svg",
-        "appNameStatus": "normal",
-        "positionAppName": "column",
-        "lineClampAppName": 1,
-        "appNameFontSize": 16
-      },
-      "network": {
-        "enabledStatusChecker": true,
-        "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
-        ]
-      },
-      "behaviour": {
-        "isOpeningNewTab": true,
-        "externalUrl": "http://docker.local.jcdev.io:7878/settings/general"
-      },
-      "area": {
-        "type": "category",
-        "properties": {
-          "id": "e1853f76-29f4-4d94-9f23-2d9c8f6aca06"
-        }
-      },
-      "shape": {
-        "lg": {
-          "location": {
-            "x": 2,
-            "y": 0
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        },
-        "md": {
-          "location": {
-            "x": 1,
-            "y": 2
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        }
-      },
-      "integration": {
-        "type": "radarr",
-        "properties": [
-          {
-            "field": "apiKey",
-            "type": "private",
-            "value": "6ae9398ddeb648fe9364a3bed5b21999"
-          }
-        ]
-      }
-    },
-    {
-      "id": "489868d6-b5f2-4345-8a51-a00f33f1728c",
-      "name": "Portainer",
-      "url": "https://10.0.10.6",
-      "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/portainer.svg",
-        "appNameStatus": "normal",
-        "positionAppName": "column",
-        "lineClampAppName": 1,
-        "appNameFontSize": 16
-      },
-      "network": {
-        "enabledStatusChecker": true,
-        "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
-        ]
-      },
-      "behaviour": {
-        "isOpeningNewTab": true,
-        "externalUrl": "https://portainer.local.jcdev.io"
-      },
-      "area": {
-        "type": "category",
-        "properties": {
-          "id": "8deecadd-d2f9-4c7b-b29b-228062d6692a"
-        }
-      },
-      "shape": {
-        "lg": {
-          "location": {
-            "x": 2,
-            "y": 0
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        },
-        "md": {
-          "location": {
-            "x": 1,
-            "y": 1
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        }
-      },
-      "integration": {
-        "type": null,
-        "properties": []
-      }
-    },
-    {
       "id": "3c43f1ab-68d1-48ec-8815-aaac0dc99adb",
       "name": "Bazarr",
       "url": "http://docker.local.jcdev.io:6767/series",
@@ -340,195 +86,6 @@
           "location": {
             "x": 0,
             "y": 2
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        }
-      },
-      "integration": {
-        "type": null,
-        "properties": []
-      }
-    },
-    {
-      "id": "3bde71d8-b1a0-4fda-bd6a-66e29172b365",
-      "name": "Proxmox",
-      "url": "https://10.0.10.5",
-      "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/proxmox.svg",
-        "appNameStatus": "normal",
-        "positionAppName": "column",
-        "lineClampAppName": 1,
-        "appNameFontSize": 16
-      },
-      "network": {
-        "enabledStatusChecker": true,
-        "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
-        ]
-      },
-      "behaviour": {
-        "isOpeningNewTab": true,
-        "externalUrl": "https://prox1.local.jcdev.io"
-      },
-      "area": {
-        "type": "category",
-        "properties": {
-          "id": "8deecadd-d2f9-4c7b-b29b-228062d6692a"
-        }
-      },
-      "shape": {
-        "md": {
-          "location": {
-            "x": 0,
-            "y": 0
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        },
-        "lg": {
-          "location": {
-            "x": 3,
-            "y": 0
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        }
-      },
-      "integration": {
-        "type": "proxmox",
-        "properties": [
-          {
-            "field": "apiKey",
-            "type": "private",
-            "value": "b484f002-ee20-46cb-a8c4-678080e2652b"
-          }
-        ]
-      }
-    },
-    {
-      "id": "695c24c4-fdfb-4dd4-add5-833ecc5b8111",
-      "name": "Sonarr",
-      "url": "http://docker.local.jcdev.io:8989",
-      "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/sonarr.svg",
-        "appNameStatus": "normal",
-        "positionAppName": "column",
-        "lineClampAppName": 1,
-        "appNameFontSize": 16
-      },
-      "network": {
-        "enabledStatusChecker": true,
-        "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
-        ]
-      },
-      "behaviour": {
-        "isOpeningNewTab": true,
-        "externalUrl": "http://docker.local.jcdev.io:8989/"
-      },
-      "area": {
-        "type": "category",
-        "properties": {
-          "id": "e1853f76-29f4-4d94-9f23-2d9c8f6aca06"
-        }
-      },
-      "shape": {
-        "lg": {
-          "location": {
-            "x": 0,
-            "y": 0
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        },
-        "md": {
-          "location": {
-            "x": 3,
-            "y": 0
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        }
-      },
-      "integration": {
-        "type": "sonarr",
-        "properties": [
-          {
-            "field": "apiKey",
-            "type": "private",
-            "value": "509195739aa947f79c1a796b417b2e04"
-          }
-        ]
-      }
-    },
-    {
-      "id": "9afb9d2d-e399-4bbb-9e36-9edee01c4a69",
-      "name": "Nas",
-      "url": "https://10.0.20.2:5001",
-      "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/synology-dsm.svg",
-        "appNameStatus": "normal",
-        "positionAppName": "column",
-        "lineClampAppName": 1,
-        "appNameFontSize": 16
-      },
-      "network": {
-        "enabledStatusChecker": true,
-        "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
-        ]
-      },
-      "behaviour": {
-        "isOpeningNewTab": true,
-        "externalUrl": "https://main-nas.local.jcdev.io"
-      },
-      "area": {
-        "type": "category",
-        "properties": {
-          "id": "8deecadd-d2f9-4c7b-b29b-228062d6692a"
-        }
-      },
-      "shape": {
-        "md": {
-          "location": {
-            "x": 0,
-            "y": 1
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        },
-        "lg": {
-          "location": {
-            "x": 1,
-            "y": 0
           },
           "size": {
             "width": 1,
@@ -598,71 +155,6 @@
       "integration": {
         "type": null,
         "properties": []
-      }
-    },
-    {
-      "id": "3eef4ccb-61ad-4bc5-8939-0607cce59b30",
-      "name": "Pihole",
-      "url": "http://10.0.10.3",
-      "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/loganmarchione/homelab-svg-assets/assets/pihole.svg",
-        "appNameStatus": "normal",
-        "positionAppName": "column",
-        "lineClampAppName": 1,
-        "appNameFontSize": 16
-      },
-      "network": {
-        "enabledStatusChecker": true,
-        "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
-        ]
-      },
-      "behaviour": {
-        "isOpeningNewTab": true,
-        "externalUrl": "https://dns.local.jcdev.io"
-      },
-      "area": {
-        "type": "category",
-        "properties": {
-          "id": "460de22a-da17-427b-a390-c79c0eb1d9fd"
-        }
-      },
-      "shape": {
-        "lg": {
-          "location": {
-            "x": 0,
-            "y": 0
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        },
-        "md": {
-          "location": {
-            "x": 1,
-            "y": 0
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        }
-      },
-      "integration": {
-        "type": "pihole",
-        "properties": [
-          {
-            "field": "apiKey",
-            "type": "private",
-            "value": "3a425106067f23d8ef4c40979516d4fd2f4c9e8b0d5bbd0e0e3a09baa28e6c85"
-          }
-        ]
       }
     },
     {
@@ -854,65 +346,6 @@
       }
     },
     {
-      "id": "6c731c15-51f6-4778-ba5d-3018906d1885",
-      "name": "NPM",
-      "url": "https://proxy:81",
-      "appearance": {
-        "iconUrl": "https://unpkg.com/@tabler/icons-png@2.0.0-beta/icons/brand-npm.png",
-        "appNameStatus": "normal",
-        "positionAppName": "column",
-        "lineClampAppName": 1,
-        "appNameFontSize": 16
-      },
-      "network": {
-        "enabledStatusChecker": true,
-        "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
-        ]
-      },
-      "behaviour": {
-        "isOpeningNewTab": true,
-        "externalUrl": "https://proxy.local.jcdev.io"
-      },
-      "area": {
-        "type": "category",
-        "properties": {
-          "id": "460de22a-da17-427b-a390-c79c0eb1d9fd"
-        }
-      },
-      "shape": {
-        "lg": {
-          "location": {
-            "x": 1,
-            "y": 0
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        },
-        "md": {
-          "location": {
-            "x": 0,
-            "y": 0
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        }
-      },
-      "integration": {
-        "type": null,
-        "properties": []
-      }
-    },
-    {
       "id": "28da8bb2-c4d9-43c9-ae3f-880ba03e6f27",
       "name": "Haos",
       "url": "http://haos.local.jcdev.io:8123",
@@ -1032,6 +465,632 @@
             "field": "apiKey",
             "type": "private",
             "value": "babe6fbc3f06466aab923bf23424aff2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "489868d6-b5f2-4345-8a51-a00f33f1728c",
+      "name": "Portainer",
+      "url": "https://10.0.10.6",
+      "appearance": {
+        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/portainer.svg",
+        "appNameStatus": "normal",
+        "positionAppName": "column",
+        "lineClampAppName": 1,
+        "appNameFontSize": 16
+      },
+      "network": {
+        "enabledStatusChecker": true,
+        "statusCodes": [
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
+        ]
+      },
+      "behaviour": {
+        "isOpeningNewTab": true,
+        "externalUrl": "https://portainer.local.jcdev.io"
+      },
+      "area": {
+        "type": "category",
+        "properties": {
+          "id": "8deecadd-d2f9-4c7b-b29b-228062d6692a"
+        }
+      },
+      "shape": {
+        "lg": {
+          "location": {
+            "x": 2,
+            "y": 0
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        },
+        "md": {
+          "location": {
+            "x": 1,
+            "y": 1
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        }
+      },
+      "integration": {
+        "type": null,
+        "properties": []
+      }
+    },
+    {
+      "id": "2bf85509-d947-4aca-aa33-76a9cb324039",
+      "name": "Lidarr",
+      "url": "http://docker.local.jcdev.io:8686",
+      "appearance": {
+        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/lidarr.svg",
+        "appNameStatus": "normal",
+        "positionAppName": "column",
+        "lineClampAppName": 1,
+        "appNameFontSize": 16
+      },
+      "network": {
+        "enabledStatusChecker": true,
+        "statusCodes": [
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
+        ]
+      },
+      "behaviour": {
+        "isOpeningNewTab": true,
+        "externalUrl": "http://docker.local.jcdev.io:8686/"
+      },
+      "area": {
+        "type": "category",
+        "properties": {
+          "id": "e1853f76-29f4-4d94-9f23-2d9c8f6aca06"
+        }
+      },
+      "shape": {
+        "lg": {
+          "location": {
+            "x": 6,
+            "y": 0
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        },
+        "md": {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        }
+      },
+      "integration": {
+        "type": "lidarr",
+        "properties": [
+          {
+            "field": "apiKey",
+            "type": "private",
+            "value": "4ed0cdbf1bea4ae08cd56e805809117c"
+          }
+        ]
+      }
+    },
+    {
+      "id": "6c731c15-51f6-4778-ba5d-3018906d1885",
+      "name": "NPM",
+      "url": "https://proxy:81",
+      "appearance": {
+        "iconUrl": "https://unpkg.com/@tabler/icons-png@2.0.0-beta/icons/brand-npm.png",
+        "appNameStatus": "normal",
+        "positionAppName": "column",
+        "lineClampAppName": 1,
+        "appNameFontSize": 16
+      },
+      "network": {
+        "enabledStatusChecker": true,
+        "statusCodes": [
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
+        ]
+      },
+      "behaviour": {
+        "isOpeningNewTab": true,
+        "externalUrl": "https://proxy.local.jcdev.io"
+      },
+      "area": {
+        "type": "category",
+        "properties": {
+          "id": "460de22a-da17-427b-a390-c79c0eb1d9fd"
+        }
+      },
+      "shape": {
+        "lg": {
+          "location": {
+            "x": 1,
+            "y": 0
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        },
+        "md": {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        }
+      },
+      "integration": {
+        "type": null,
+        "properties": []
+      }
+    },
+    {
+      "id": "3bde71d8-b1a0-4fda-bd6a-66e29172b365",
+      "name": "Proxmox",
+      "url": "https://10.0.10.5",
+      "appearance": {
+        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/proxmox.svg",
+        "appNameStatus": "normal",
+        "positionAppName": "column",
+        "lineClampAppName": 1,
+        "appNameFontSize": 16
+      },
+      "network": {
+        "enabledStatusChecker": true,
+        "statusCodes": [
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
+        ]
+      },
+      "behaviour": {
+        "isOpeningNewTab": true,
+        "externalUrl": "https://prox1.local.jcdev.io"
+      },
+      "area": {
+        "type": "category",
+        "properties": {
+          "id": "8deecadd-d2f9-4c7b-b29b-228062d6692a"
+        }
+      },
+      "shape": {
+        "md": {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        },
+        "lg": {
+          "location": {
+            "x": 3,
+            "y": 0
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        }
+      },
+      "integration": {
+        "type": "proxmox",
+        "properties": [
+          {
+            "field": "apiKey",
+            "type": "private",
+            "value": "b484f002-ee20-46cb-a8c4-678080e2652b"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2804d5ab-fd39-41e9-b580-1acc2f80d574",
+      "name": "Prowlarr",
+      "url": "http://docker.local.jcdev.io:9696/settings/general",
+      "appearance": {
+        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/prowlarr.svg",
+        "appNameStatus": "normal",
+        "positionAppName": "column",
+        "lineClampAppName": 1,
+        "appNameFontSize": 16
+      },
+      "network": {
+        "enabledStatusChecker": true,
+        "statusCodes": [
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
+        ]
+      },
+      "behaviour": {
+        "isOpeningNewTab": true,
+        "externalUrl": "http://docker.local.jcdev.io:9696/settings/general"
+      },
+      "area": {
+        "type": "category",
+        "properties": {
+          "id": "e1853f76-29f4-4d94-9f23-2d9c8f6aca06"
+        }
+      },
+      "shape": {
+        "md": {
+          "location": {
+            "x": 1,
+            "y": 0
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        },
+        "lg": {
+          "location": {
+            "x": 7,
+            "y": 0
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        }
+      },
+      "integration": {
+        "type": "prowlarr",
+        "properties": [
+          {
+            "field": "apiKey",
+            "type": "private",
+            "value": "678f36ff760a432f80c5b0a1ee29c6f6"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5994cde1-2b0f-467c-8ca7-599139c50176",
+      "name": "Calibre",
+      "url": "http://docker.local.jcdev.io:8010",
+      "appearance": {
+        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/calibre-web.svg",
+        "appNameStatus": "normal",
+        "positionAppName": "column",
+        "lineClampAppName": 1,
+        "appNameFontSize": 16
+      },
+      "network": {
+        "enabledStatusChecker": true,
+        "statusCodes": [
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
+        ]
+      },
+      "behaviour": {
+        "isOpeningNewTab": true,
+        "externalUrl": "http://docker.local.jcdev.io:8010/"
+      },
+      "area": {
+        "type": "category",
+        "properties": {
+          "id": "e1853f76-29f4-4d94-9f23-2d9c8f6aca06"
+        }
+      },
+      "shape": {
+        "lg": {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        },
+        "md": {
+          "location": {
+            "x": 2,
+            "y": 1
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        }
+      },
+      "integration": {
+        "type": null,
+        "properties": []
+      }
+    },
+    {
+      "id": "3eef4ccb-61ad-4bc5-8939-0607cce59b30",
+      "name": "Pihole",
+      "url": "http://10.0.10.3",
+      "appearance": {
+        "iconUrl": "https://cdn.jsdelivr.net/gh/loganmarchione/homelab-svg-assets/assets/pihole.svg",
+        "appNameStatus": "normal",
+        "positionAppName": "column",
+        "lineClampAppName": 1,
+        "appNameFontSize": 16
+      },
+      "network": {
+        "enabledStatusChecker": true,
+        "statusCodes": [
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
+        ]
+      },
+      "behaviour": {
+        "isOpeningNewTab": true,
+        "externalUrl": "https://dns.local.jcdev.io"
+      },
+      "area": {
+        "type": "category",
+        "properties": {
+          "id": "460de22a-da17-427b-a390-c79c0eb1d9fd"
+        }
+      },
+      "shape": {
+        "lg": {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        },
+        "md": {
+          "location": {
+            "x": 1,
+            "y": 0
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        }
+      },
+      "integration": {
+        "type": "pihole",
+        "properties": [
+          {
+            "field": "apiKey",
+            "type": "private",
+            "value": "3a425106067f23d8ef4c40979516d4fd2f4c9e8b0d5bbd0e0e3a09baa28e6c85"
+          }
+        ]
+      }
+    },
+    {
+      "id": "9afb9d2d-e399-4bbb-9e36-9edee01c4a69",
+      "name": "Nas",
+      "url": "https://10.0.20.2:5001",
+      "appearance": {
+        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/synology-dsm.svg",
+        "appNameStatus": "normal",
+        "positionAppName": "column",
+        "lineClampAppName": 1,
+        "appNameFontSize": 16
+      },
+      "network": {
+        "enabledStatusChecker": true,
+        "statusCodes": [
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
+        ]
+      },
+      "behaviour": {
+        "isOpeningNewTab": true,
+        "externalUrl": "https://main-nas.local.jcdev.io"
+      },
+      "area": {
+        "type": "category",
+        "properties": {
+          "id": "8deecadd-d2f9-4c7b-b29b-228062d6692a"
+        }
+      },
+      "shape": {
+        "md": {
+          "location": {
+            "x": 0,
+            "y": 1
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        },
+        "lg": {
+          "location": {
+            "x": 1,
+            "y": 0
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        }
+      },
+      "integration": {
+        "type": null,
+        "properties": []
+      }
+    },
+    {
+      "id": "b4ab8b2b-0542-45de-953e-a8df227b76ba",
+      "name": "Radarr",
+      "url": "http://docker.local.jcdev.io:7878/settings/general",
+      "appearance": {
+        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/radarr.svg",
+        "appNameStatus": "normal",
+        "positionAppName": "column",
+        "lineClampAppName": 1,
+        "appNameFontSize": 16
+      },
+      "network": {
+        "enabledStatusChecker": true,
+        "statusCodes": [
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
+        ]
+      },
+      "behaviour": {
+        "isOpeningNewTab": true,
+        "externalUrl": "http://docker.local.jcdev.io:7878/settings/general"
+      },
+      "area": {
+        "type": "category",
+        "properties": {
+          "id": "e1853f76-29f4-4d94-9f23-2d9c8f6aca06"
+        }
+      },
+      "shape": {
+        "lg": {
+          "location": {
+            "x": 2,
+            "y": 0
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        },
+        "md": {
+          "location": {
+            "x": 1,
+            "y": 2
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        }
+      },
+      "integration": {
+        "type": "radarr",
+        "properties": [
+          {
+            "field": "apiKey",
+            "type": "private",
+            "value": "6ae9398ddeb648fe9364a3bed5b21999"
+          }
+        ]
+      }
+    },
+    {
+      "id": "695c24c4-fdfb-4dd4-add5-833ecc5b8111",
+      "name": "Sonarr",
+      "url": "http://docker.local.jcdev.io:8989",
+      "appearance": {
+        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/sonarr.svg",
+        "appNameStatus": "normal",
+        "positionAppName": "column",
+        "lineClampAppName": 1,
+        "appNameFontSize": 16
+      },
+      "network": {
+        "enabledStatusChecker": true,
+        "statusCodes": [
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
+        ]
+      },
+      "behaviour": {
+        "isOpeningNewTab": true,
+        "externalUrl": "http://docker.local.jcdev.io:8989/"
+      },
+      "area": {
+        "type": "category",
+        "properties": {
+          "id": "e1853f76-29f4-4d94-9f23-2d9c8f6aca06"
+        }
+      },
+      "shape": {
+        "lg": {
+          "location": {
+            "x": 1,
+            "y": 0
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        },
+        "md": {
+          "location": {
+            "x": 3,
+            "y": 0
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        }
+      },
+      "integration": {
+        "type": "sonarr",
+        "properties": [
+          {
+            "field": "apiKey",
+            "type": "private",
+            "value": "509195739aa947f79c1a796b417b2e04"
           }
         ]
       }
