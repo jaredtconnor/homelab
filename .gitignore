@@ -48,4 +48,5 @@ apps/media/aar/sonarr
 apps/media/aar/qbittorrent
 apps/media/aar/gluetun 
 apps/media/aar/jellyseerr
-apps/media/aar/overseerr
+apps/media/aar/overseerr 
+apps/media/aar/calibre
