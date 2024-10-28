@@ -40,11 +40,11 @@
   ],
   "apps": [
     {
-      "id": "695c24c4-fdfb-4dd4-add5-833ecc5b8111",
-      "name": "Sonarr",
-      "url": "http://docker.local.jcdev.io:8989",
+      "id": "2bf85509-d947-4aca-aa33-76a9cb324039",
+      "name": "Lidarr",
+      "url": "http://docker.local.jcdev.io:8686",
       "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/sonarr.svg",
+        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/lidarr.svg",
         "appNameStatus": "normal",
         "positionAppName": "column",
         "lineClampAppName": 1,
@@ -63,7 +63,7 @@
       },
       "behaviour": {
         "isOpeningNewTab": true,
-        "externalUrl": "http://docker.local.jcdev.io:8989/"
+        "externalUrl": "http://docker.local.jcdev.io:8686/"
       },
       "area": {
         "type": "category",
@@ -74,7 +74,7 @@
       "shape": {
         "lg": {
           "location": {
-            "x": 0,
+            "x": 6,
             "y": 0
           },
           "size": {
@@ -84,7 +84,7 @@
         },
         "md": {
           "location": {
-            "x": 3,
+            "x": 0,
             "y": 0
           },
           "size": {
@@ -94,22 +94,22 @@
         }
       },
       "integration": {
-        "type": "sonarr",
+        "type": "lidarr",
         "properties": [
           {
             "field": "apiKey",
             "type": "private",
-            "value": "509195739aa947f79c1a796b417b2e04"
+            "value": "4ed0cdbf1bea4ae08cd56e805809117c"
           }
         ]
       }
     },
     {
-      "id": "b88abd43-73d9-4302-9170-f645faf2da97",
-      "name": "qBittorrent",
-      "url": "http://docker.local.jcdev.io:8080",
+      "id": "2804d5ab-fd39-41e9-b580-1acc2f80d574",
+      "name": "Prowlarr",
+      "url": "http://docker.local.jcdev.io:9696/settings/general",
       "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/qbittorrent.svg",
+        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/prowlarr.svg",
         "appNameStatus": "normal",
         "positionAppName": "column",
         "lineClampAppName": 1,
@@ -128,7 +128,7 @@
       },
       "behaviour": {
         "isOpeningNewTab": true,
-        "externalUrl": "http://docker.local.jcdev.io:8080/"
+        "externalUrl": "http://docker.local.jcdev.io:9696/settings/general"
       },
       "area": {
         "type": "category",
@@ -140,7 +140,7 @@
         "md": {
           "location": {
             "x": 1,
-            "y": 1
+            "y": 0
           },
           "size": {
             "width": 1,
@@ -149,8 +149,138 @@
         },
         "lg": {
           "location": {
-            "x": 3,
+            "x": 7,
             "y": 0
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        }
+      },
+      "integration": {
+        "type": "prowlarr",
+        "properties": [
+          {
+            "field": "apiKey",
+            "type": "private",
+            "value": "678f36ff760a432f80c5b0a1ee29c6f6"
+          }
+        ]
+      }
+    },
+    {
+      "id": "b4ab8b2b-0542-45de-953e-a8df227b76ba",
+      "name": "Radarr",
+      "url": "http://docker.local.jcdev.io:7878/settings/general",
+      "appearance": {
+        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/radarr.svg",
+        "appNameStatus": "normal",
+        "positionAppName": "column",
+        "lineClampAppName": 1,
+        "appNameFontSize": 16
+      },
+      "network": {
+        "enabledStatusChecker": true,
+        "statusCodes": [
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
+        ]
+      },
+      "behaviour": {
+        "isOpeningNewTab": true,
+        "externalUrl": "http://docker.local.jcdev.io:7878/settings/general"
+      },
+      "area": {
+        "type": "category",
+        "properties": {
+          "id": "e1853f76-29f4-4d94-9f23-2d9c8f6aca06"
+        }
+      },
+      "shape": {
+        "lg": {
+          "location": {
+            "x": 2,
+            "y": 0
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        },
+        "md": {
+          "location": {
+            "x": 1,
+            "y": 2
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        }
+      },
+      "integration": {
+        "type": "radarr",
+        "properties": [
+          {
+            "field": "apiKey",
+            "type": "private",
+            "value": "6ae9398ddeb648fe9364a3bed5b21999"
+          }
+        ]
+      }
+    },
+    {
+      "id": "489868d6-b5f2-4345-8a51-a00f33f1728c",
+      "name": "Portainer",
+      "url": "https://10.0.10.6",
+      "appearance": {
+        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/portainer.svg",
+        "appNameStatus": "normal",
+        "positionAppName": "column",
+        "lineClampAppName": 1,
+        "appNameFontSize": 16
+      },
+      "network": {
+        "enabledStatusChecker": true,
+        "statusCodes": [
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
+        ]
+      },
+      "behaviour": {
+        "isOpeningNewTab": true,
+        "externalUrl": "https://portainer.local.jcdev.io"
+      },
+      "area": {
+        "type": "category",
+        "properties": {
+          "id": "8deecadd-d2f9-4c7b-b29b-228062d6692a"
+        }
+      },
+      "shape": {
+        "lg": {
+          "location": {
+            "x": 2,
+            "y": 0
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        },
+        "md": {
+          "location": {
+            "x": 1,
+            "y": 1
           },
           "size": {
             "width": 1,
@@ -164,11 +294,11 @@
       }
     },
     {
-      "id": "252b3875-b897-47a3-8203-9af533129139",
-      "name": "Jellyfin",
-      "url": "http://docker.local.jcdev.io:8096",
+      "id": "3c43f1ab-68d1-48ec-8815-aaac0dc99adb",
+      "name": "Bazarr",
+      "url": "http://docker.local.jcdev.io:6767/series",
       "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/jellyfin.svg",
+        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/bazarr.svg",
         "appNameStatus": "normal",
         "positionAppName": "column",
         "lineClampAppName": 1,
@@ -187,7 +317,7 @@
       },
       "behaviour": {
         "isOpeningNewTab": true,
-        "externalUrl": "http://docker.local.jcdev.io:8096/"
+        "externalUrl": "http://docker.local.jcdev.io:6767/series"
       },
       "area": {
         "type": "category",
@@ -196,20 +326,20 @@
         }
       },
       "shape": {
+        "lg": {
+          "location": {
+            "x": 1,
+            "y": 0
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        },
         "md": {
           "location": {
             "x": 0,
-            "y": 1
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        },
-        "lg": {
-          "location": {
-            "x": 4,
-            "y": 0
+            "y": 2
           },
           "size": {
             "width": 1,
@@ -218,84 +348,8 @@
         }
       },
       "integration": {
-        "type": "jellyfin",
-        "properties": [
-          {
-            "field": "username",
-            "type": "public",
-            "value": "jaredconnor"
-          },
-          {
-            "field": "password",
-            "type": "private",
-            "value": "littlejack"
-          }
-        ]
-      }
-    },
-    {
-      "id": "51f6b5a9-1d11-4e90-921f-e9b90ecfd2c1",
-      "name": "Readarr",
-      "url": "http://docker.local.jcdev.io:8787",
-      "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/readarr.svg",
-        "appNameStatus": "normal",
-        "positionAppName": "column",
-        "lineClampAppName": 1,
-        "appNameFontSize": 16
-      },
-      "network": {
-        "enabledStatusChecker": true,
-        "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
-        ]
-      },
-      "behaviour": {
-        "isOpeningNewTab": true,
-        "externalUrl": "https://homarr.devhttp://docker.local.jcdev.io:8787/"
-      },
-      "area": {
-        "type": "category",
-        "properties": {
-          "id": "e1853f76-29f4-4d94-9f23-2d9c8f6aca06"
-        }
-      },
-      "shape": {
-        "lg": {
-          "location": {
-            "x": 5,
-            "y": 0
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        },
-        "md": {
-          "location": {
-            "x": 2,
-            "y": 0
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        }
-      },
-      "integration": {
-        "type": "readarr",
-        "properties": [
-          {
-            "field": "apiKey",
-            "type": "private",
-            "value": "babe6fbc3f06466aab923bf23424aff2"
-          }
-        ]
+        "type": null,
+        "properties": []
       }
     },
     {
@@ -364,11 +418,11 @@
       }
     },
     {
-      "id": "2bf85509-d947-4aca-aa33-76a9cb324039",
-      "name": "Lidarr",
-      "url": "http://docker.local.jcdev.io:8686",
+      "id": "695c24c4-fdfb-4dd4-add5-833ecc5b8111",
+      "name": "Sonarr",
+      "url": "http://docker.local.jcdev.io:8989",
       "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/lidarr.svg",
+        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/sonarr.svg",
         "appNameStatus": "normal",
         "positionAppName": "column",
         "lineClampAppName": 1,
@@ -387,7 +441,7 @@
       },
       "behaviour": {
         "isOpeningNewTab": true,
-        "externalUrl": "http://docker.local.jcdev.io:8686/"
+        "externalUrl": "http://docker.local.jcdev.io:8989/"
       },
       "area": {
         "type": "category",
@@ -398,7 +452,7 @@
       "shape": {
         "lg": {
           "location": {
-            "x": 6,
+            "x": 0,
             "y": 0
           },
           "size": {
@@ -408,7 +462,7 @@
         },
         "md": {
           "location": {
-            "x": 0,
+            "x": 3,
             "y": 0
           },
           "size": {
@@ -418,12 +472,12 @@
         }
       },
       "integration": {
-        "type": "lidarr",
+        "type": "sonarr",
         "properties": [
           {
             "field": "apiKey",
             "type": "private",
-            "value": "4ed0cdbf1bea4ae08cd56e805809117c"
+            "value": "509195739aa947f79c1a796b417b2e04"
           }
         ]
       }
@@ -488,11 +542,11 @@
       }
     },
     {
-      "id": "2804d5ab-fd39-41e9-b580-1acc2f80d574",
-      "name": "Prowlarr",
-      "url": "http://docker.local.jcdev.io:9696/settings/general",
+      "id": "b88abd43-73d9-4302-9170-f645faf2da97",
+      "name": "qBittorrent",
+      "url": "http://docker.local.jcdev.io:8080",
       "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/prowlarr.svg",
+        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/qbittorrent.svg",
         "appNameStatus": "normal",
         "positionAppName": "column",
         "lineClampAppName": 1,
@@ -511,7 +565,7 @@
       },
       "behaviour": {
         "isOpeningNewTab": true,
-        "externalUrl": "http://docker.local.jcdev.io:9696/settings/general"
+        "externalUrl": "http://docker.local.jcdev.io:8080/"
       },
       "area": {
         "type": "category",
@@ -523,7 +577,7 @@
         "md": {
           "location": {
             "x": 1,
-            "y": 0
+            "y": 1
           },
           "size": {
             "width": 1,
@@ -532,7 +586,7 @@
         },
         "lg": {
           "location": {
-            "x": 7,
+            "x": 3,
             "y": 0
           },
           "size": {
@@ -542,14 +596,8 @@
         }
       },
       "integration": {
-        "type": "prowlarr",
-        "properties": [
-          {
-            "field": "apiKey",
-            "type": "private",
-            "value": "678f36ff760a432f80c5b0a1ee29c6f6"
-          }
-        ]
+        "type": null,
+        "properties": []
       }
     },
     {
@@ -677,11 +725,11 @@
       }
     },
     {
-      "id": "b4ab8b2b-0542-45de-953e-a8df227b76ba",
-      "name": "Radarr",
-      "url": "http://docker.local.jcdev.io:7878/settings/general",
+      "id": "252b3875-b897-47a3-8203-9af533129139",
+      "name": "Jellyfin",
+      "url": "http://docker.local.jcdev.io:8096",
       "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/radarr.svg",
+        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/jellyfin.svg",
         "appNameStatus": "normal",
         "positionAppName": "column",
         "lineClampAppName": 1,
@@ -700,7 +748,77 @@
       },
       "behaviour": {
         "isOpeningNewTab": true,
-        "externalUrl": "http://docker.local.jcdev.io:7878/settings/general"
+        "externalUrl": "http://docker.local.jcdev.io:8096/"
+      },
+      "area": {
+        "type": "category",
+        "properties": {
+          "id": "e1853f76-29f4-4d94-9f23-2d9c8f6aca06"
+        }
+      },
+      "shape": {
+        "md": {
+          "location": {
+            "x": 0,
+            "y": 1
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        },
+        "lg": {
+          "location": {
+            "x": 4,
+            "y": 0
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        }
+      },
+      "integration": {
+        "type": "jellyfin",
+        "properties": [
+          {
+            "field": "username",
+            "type": "public",
+            "value": "jaredconnor"
+          },
+          {
+            "field": "password",
+            "type": "private",
+            "value": "littlejack"
+          }
+        ]
+      }
+    },
+    {
+      "id": "00f87a36-39cb-44b9-a0bc-f9850121f9b7",
+      "name": "Sabnzb",
+      "url": "http://docker.local.jcdev.io:8090",
+      "appearance": {
+        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/sabnzbd-alt.svg",
+        "appNameStatus": "normal",
+        "positionAppName": "column",
+        "lineClampAppName": 1,
+        "appNameFontSize": 16
+      },
+      "network": {
+        "enabledStatusChecker": true,
+        "statusCodes": [
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
+        ]
+      },
+      "behaviour": {
+        "isOpeningNewTab": true,
+        "externalUrl": "http://docker.local.jcdev.io:8090"
       },
       "area": {
         "type": "category",
@@ -711,7 +829,7 @@
       "shape": {
         "lg": {
           "location": {
-            "x": 2,
+            "x": 0,
             "y": 0
           },
           "size": {
@@ -721,63 +839,8 @@
         },
         "md": {
           "location": {
-            "x": 1,
+            "x": 2,
             "y": 2
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        }
-      },
-      "integration": {
-        "type": "radarr",
-        "properties": [
-          {
-            "field": "apiKey",
-            "type": "private",
-            "value": "6ae9398ddeb648fe9364a3bed5b21999"
-          }
-        ]
-      }
-    },
-    {
-      "id": "28da8bb2-c4d9-43c9-ae3f-880ba03e6f27",
-      "name": "Haos",
-      "url": "http://haos.local.jcdev.io:8123",
-      "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/home-assistant-alt.svg",
-        "appNameStatus": "normal",
-        "positionAppName": "column",
-        "lineClampAppName": 1,
-        "appNameFontSize": 16
-      },
-      "network": {
-        "enabledStatusChecker": true,
-        "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
-        ]
-      },
-      "behaviour": {
-        "isOpeningNewTab": true,
-        "externalUrl": "http://haos.local.jcdev.io:8123"
-      },
-      "area": {
-        "type": "category",
-        "properties": {
-          "id": "8deecadd-d2f9-4c7b-b29b-228062d6692a"
-        }
-      },
-      "shape": {
-        "lg": {
-          "location": {
-            "x": 4,
-            "y": 0
           },
           "size": {
             "width": 1,
@@ -850,11 +913,11 @@
       }
     },
     {
-      "id": "489868d6-b5f2-4345-8a51-a00f33f1728c",
-      "name": "Portainer",
-      "url": "https://10.0.10.6",
+      "id": "28da8bb2-c4d9-43c9-ae3f-880ba03e6f27",
+      "name": "Haos",
+      "url": "http://haos.local.jcdev.io:8123",
       "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/portainer.svg",
+        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/home-assistant-alt.svg",
         "appNameStatus": "normal",
         "positionAppName": "column",
         "lineClampAppName": 1,
@@ -873,7 +936,7 @@
       },
       "behaviour": {
         "isOpeningNewTab": true,
-        "externalUrl": "https://portainer.local.jcdev.io"
+        "externalUrl": "http://haos.local.jcdev.io:8123"
       },
       "area": {
         "type": "category",
@@ -884,66 +947,7 @@
       "shape": {
         "lg": {
           "location": {
-            "x": 2,
-            "y": 0
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        },
-        "md": {
-          "location": {
-            "x": 1,
-            "y": 1
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        }
-      },
-      "integration": {
-        "type": null,
-        "properties": []
-      }
-    },
-    {
-      "id": "3c43f1ab-68d1-48ec-8815-aaac0dc99adb",
-      "name": "Bazarr",
-      "url": "http://docker.local.jcdev.io:6767/series",
-      "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/bazarr.svg",
-        "appNameStatus": "normal",
-        "positionAppName": "column",
-        "lineClampAppName": 1,
-        "appNameFontSize": 16
-      },
-      "network": {
-        "enabledStatusChecker": true,
-        "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
-        ]
-      },
-      "behaviour": {
-        "isOpeningNewTab": true,
-        "externalUrl": "http://docker.local.jcdev.io:6767/series"
-      },
-      "area": {
-        "type": "category",
-        "properties": {
-          "id": "e1853f76-29f4-4d94-9f23-2d9c8f6aca06"
-        }
-      },
-      "shape": {
-        "lg": {
-          "location": {
-            "x": 1,
+            "x": 4,
             "y": 0
           },
           "size": {
@@ -966,29 +970,41 @@
         "type": null,
         "properties": []
       }
-    }
-  ],
-  "widgets": [
+    },
     {
-      "id": "e3004052-6b83-480e-b458-56e8ccdca5f0",
-      "type": "weather",
-      "properties": {
-        "displayInFahrenheit": false,
-        "location": {
-          "name": "Paris",
-          "latitude": 48.85341,
-          "longitude": 2.3488
-        },
-        "displayCityName": true
+      "id": "51f6b5a9-1d11-4e90-921f-e9b90ecfd2c1",
+      "name": "Readarr",
+      "url": "http://docker.local.jcdev.io:8787",
+      "appearance": {
+        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/readarr.svg",
+        "appNameStatus": "normal",
+        "positionAppName": "column",
+        "lineClampAppName": 1,
+        "appNameFontSize": 16
+      },
+      "network": {
+        "enabledStatusChecker": true,
+        "statusCodes": [
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
+        ]
+      },
+      "behaviour": {
+        "isOpeningNewTab": true,
+        "externalUrl": "https://homarr.devhttp://docker.local.jcdev.io:8787/"
       },
       "area": {
-        "type": "wrapper",
+        "type": "category",
         "properties": {
-          "id": "default"
+          "id": "e1853f76-29f4-4d94-9f23-2d9c8f6aca06"
         }
       },
       "shape": {
-        "md": {
+        "lg": {
           "location": {
             "x": 5,
             "y": 0
@@ -998,7 +1014,7 @@
             "height": 1
           }
         },
-        "sm": {
+        "md": {
           "location": {
             "x": 2,
             "y": 0
@@ -1007,19 +1023,21 @@
             "width": 1,
             "height": 1
           }
-        },
-        "lg": {
-          "location": {
-            "x": 0,
-            "y": 0
-          },
-          "size": {
-            "width": 2,
-            "height": 1
-          }
         }
+      },
+      "integration": {
+        "type": "readarr",
+        "properties": [
+          {
+            "field": "apiKey",
+            "type": "private",
+            "value": "babe6fbc3f06466aab923bf23424aff2"
+          }
+        ]
       }
-    },
+    }
+  ],
+  "widgets": [
     {
       "id": "971aa859-8570-49a1-8d34-dd5c7b3638d1",
       "type": "date",
@@ -1064,6 +1082,57 @@
         "lg": {
           "location": {
             "x": 8,
+            "y": 0
+          },
+          "size": {
+            "width": 2,
+            "height": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "e3004052-6b83-480e-b458-56e8ccdca5f0",
+      "type": "weather",
+      "properties": {
+        "displayInFahrenheit": false,
+        "location": {
+          "name": "Paris",
+          "latitude": 48.85341,
+          "longitude": 2.3488
+        },
+        "displayCityName": true
+      },
+      "area": {
+        "type": "wrapper",
+        "properties": {
+          "id": "default"
+        }
+      },
+      "shape": {
+        "md": {
+          "location": {
+            "x": 5,
+            "y": 0
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        },
+        "sm": {
+          "location": {
+            "x": 2,
+            "y": 0
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        },
+        "lg": {
+          "location": {
+            "x": 0,
             "y": 0
           },
           "size": {

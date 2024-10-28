@@ -56,7 +56,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${INSTALL_DIRECTORY}/sabnzbd:/config
-      - ${MEDIA_DIRECTORY}/usenet:/data/usenet:rw 
+      - ${USENET_INSTALL_DIR}/usenet:/data/usenet:rw 
     ports:
       - "8090:8080" # port mapping 
     restart: unless-stopped 
@@ -73,7 +73,7 @@ services:
       - PGID=${PGID}
       - WEBUI_PORT=8080
     volumes:
-      - ${MEDIA_DIRECTORY}/downloads:/downloads
+      - ${DOWNLOAD_INSTALL_DIR}:/downloads
       - ${INSTALL_DIRECTORY}/qbittorrent:/config
     restart: unless-stopped
     network_mode: "service:gluetun"
@@ -84,7 +84,7 @@ services:
   rdtclient:
     container_name: rdtclient
     volumes:
-      - '${MEDIA_DIRECTORY}/torrents:/data/torrents'
+      - '${TORRENT_INSTALL_DIR}/torrents:/data/torrents'
       - '${INSTALL_DIRECTORY}/rdt:/data/db'
     image: rogerfar/rdtclient
     restart: always
@@ -109,7 +109,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${INSTALL_DIRECTORY}/bazarr:/config
-      - ${MEDIA_DIRECTORY}/media:/data/media
+      - ${MEDIA_DIRECTORY}:/data/media
     restart: unless-stopped
     environment:
       - PUID=1000
@@ -187,7 +187,7 @@ services:
       - PGID=${PGID}
     volumes:
       - ${MEDIA_DIRECTORY}/books:/books
-      - ${MEDIA_DIRECTORY}/downloads:/downloads
+      - ${DOWNLOAD_INSTALL_DIR}/downloads:/downloads
       - ${INSTALL_DIRECTORY}/readarr:/config
     ports:
       - 8787:8787
@@ -229,7 +229,54 @@ services:
     restart: unless-stopped
     networks:
       - media 
+      - backend   
+
+  overseerr:
+    image: linuxserver/overseerr
+    container_name: overseerr
+    environment:
+      - PUID=${PUID} # Replace with your user ID
+      - PGID=${PGID} # Replace with your group ID
+      - TZ=America/Los_Angeles # Replace with your timezone
+    volumes:
+      - ${INSTALL_DIRECTORY}/overseerr:/config
+    ports:
+      - 5056:5055
+    restart: unless-stopped 
+    networks: 
+      - media 
       - backend 
+
+  jellyseerr: 
+    image: fallenbagel/jellyseerr:latest 
+    container_name: jellyseerr 
+    hostname: jellyseerr 
+    environment: 
+      - TZ=America/Los_Angeles
+    ports: 
+      - 5055:5055 
+    volumes: 
+      - ${INSTALL_DIRECTORY}/jellyseerr:/app/config 
+    restart: unless-stopped  
+    networks: 
+      - media 
+      - backend
+
+  calibre:
+    image: linuxserver/calibre
+    container_name: calibre
+    environment:
+      - PUID=${PUID} # Replace with your user ID
+      - PGID=${PGID} # Replace with your group ID
+      - TZ=America/Los_Angeles # Replace with your timezone
+    volumes:
+      - ${INSTALL_DIRECTORY}/calibre:/config/books # Replace with your Calibre library path
+      - ${DOWNLOAD_INSTALL_DIR}:/downloads # Optional: for downloading books
+    ports:
+      - 8010:8080 
+    networks: 
+      - media 
+      - backend
 
 networks:
   backend:

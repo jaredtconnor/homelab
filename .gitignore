@@ -44,4 +44,8 @@ apps/media/aar/radarr
 apps/media/aar/rdt
 apps/media/aar/readarr
 apps/media/aar/sabnzbd
-apps/media/aar/sonarr
+apps/media/aar/sonarr 
+apps/media/aar/qbittorrent
+apps/media/aar/gluetun 
+apps/media/aar/jellyseerr
+apps/media/aar/overseerr
