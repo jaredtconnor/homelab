@@ -17,12 +17,12 @@ services:
 
 volumes:
   data:
-    driver: local 
+    driver: local
 
 networks: 
   backend:
     external: true
-    name: backend  
+    name: backend
   storage:
     external: true
     name: storage
