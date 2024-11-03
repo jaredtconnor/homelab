@@ -1,4 +1,3 @@
-version: '3'
 #---------------------------------------------------------------------#
 #     Homarr - A simple, yet powerful dashboard for your server.      #
 #---------------------------------------------------------------------#
@@ -14,3 +13,17 @@ services:
       - ./data:/data
     ports:
       - '7575:7575'
+    networks: 
+      - proxy
+      - frontend
+    labels:
+      traefik.enable: true
+      traefik.http.routers.adminer.entryPoints: https 
+
+networks:
+  proxy:
+    external: true 
+    name: proxy 
+  frontend:
+    external: true
+    name: frontend
