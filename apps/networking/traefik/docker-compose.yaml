@@ -1,43 +1,39 @@
 services:
   traefik:
-    image: traefik:latest
     container_name: traefik
-    restart: unless-stopped
-    security_opt:
-      - no-new-privileges:true
-    networks:
-      - proxy
+    image: traefik:latest
     ports:
       - 80:80
       - 443:443
-    environment:
-      - CF_DNS_API_TOKEN=YOUR_API_TOKEN
-      # If you choose to use an API Key instead of a Token, specify your email as well
-      # - CF_API_EMAIL=user@example.com
-      # - CF_API_KEY=YOUR_API_KEY
+      - 8060:8080 # Dashboard port
     volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      - /home/username/traefik/data/traefik.yml:/traefik.yml:ro
-      - /home/username/traefik/data/acme.json:/acme.json
-      - /home/username/traefik/data/config.yml:/config.yml:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro # ro = read-only access to the docker.sock
+      - /opt/appdata/traefik/:/etc/traefik/ 
+      - ./logs/:/logs/
+    networks:
+      - proxy # rename this to your custom docker network 
+      - frontend
+      - backend 
+    command:
+      - "--providers.docker"
+      - "--log.level=DEBUG"
+      - "--log.filePath=/logs/traefik.log"
     labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.traefik.entrypoints=http"
-      - "traefik.http.routers.traefik.rule=Host(`traefik-dashboard.local.example.com`)"
-      - "traefik.http.middlewares.traefik-auth.basicauth.users=USER:BASIC_AUTH_PASSWORD"
-      - "traefik.http.middlewares.traefik-https-redirect.redirectscheme.scheme=https"
-      - "traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto=https"
-      - "traefik.http.routers.traefik.middlewares=traefik-https-redirect"
-      - "traefik.http.routers.traefik-secure.entrypoints=https"
-      - "traefik.http.routers.traefik-secure.rule=Host(`traefik-dashboard.local.example.com`)"
-      - "traefik.http.routers.traefik-secure.middlewares=traefik-auth"
-      - "traefik.http.routers.traefik-secure.tls=true"
-      - "traefik.http.routers.traefik-secure.tls.certresolver=cloudflare"
-      - "traefik.http.routers.traefik-secure.tls.domains[0].main=local.example.com"
-      - "traefik.http.routers.traefik-secure.tls.domains[0].sans=*.local.example.com"
-      - "traefik.http.routers.traefik-secure.service=api@internal"
+      traefik.http.routers.api.rule: Host(`traefik.jcdev.io`)    # Define the subdomain for the traefik dashboard.
+      traefik.http.routers.api.entryPoints: https    # Set the Traefik entry point.
+      traefik.http.routers.api.service: api@internal    # Enable Traefik API.
+      traefik.enable: true   # Enable Traefik reverse proxy for the Traefik dashboard.
+    environment:
+      CF_DNS_API_TOKEN: ${CF_DNS_API_TOKEN}
+    restart: unless-stopped
 
-networks:
-  proxy:
+networks:  
+  proxy: 
     external: true
+    name: proxy
+  frontend: 
+    external: true
+    name: frontend
+  backend:
+    external: true
+    name: backend
