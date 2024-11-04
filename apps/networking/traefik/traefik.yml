@@ -2,9 +2,6 @@ global:
   checkNewVersion: true
   sendAnonymousUsage: false
 
-serversTransport:
-  insecureSkipVerify: true
-
 entryPoints:
   # Not used in apps, but redirect everything from HTTP to HTTPS
   http:
@@ -62,7 +59,7 @@ providers:
 
   # File provider for connecting things that are outside of docker / defining middleware
   file:
-    filename: /etc/traefik/fileConfig.yml
+    filename: /etc/traefik/config.yml
     watch: true
 
   # Docker provider for connecting all apps that are inside of the docker network
@@ -71,18 +68,27 @@ providers:
     network: proxy # Add Your Docker Network Name Here
     # Default host rule to containername.domain.example
     defaultRule: "Host(`{{ index .Labels \"com.docker.compose.service\"}}.jcdev.io`)"
-    swarmModeRefreshSeconds: 15s #comment out or remove this line if using traefik v3
+    endpoint: "unix:///var/run/docker.sock"
     exposedByDefault: false
-    #endpoint: "tcp://dockersocket:2375" # Uncomment if you are using docker socket proxy
 
 # Enable traefik ui
 api:
   dashboard: true
   insecure: true
 
-# Log level INFO|DEBUG|ERROR
+accessLog:
+  filePath: "/logs/access.log"
+  fields:
+    headers:
+      names:
+        User-Agent: keep
+
 log:
-  level: INFO
+  filePath: "/logs/traefik.log"
+  level: DEBUG 
+
+serversTransport:
+  insecureSkipVerify: false
 
 # Use letsencrypt to generate ssl serficiates
 certificatesResolvers:

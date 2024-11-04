@@ -60,28 +60,6 @@ http:
         #ipstrategy: # enable this when cloudflare proxy in use
         #  depth: 1 # enable this when cloudflare proxy in use
   
-    # Authelia guard
-    auth:
-      forwardauth:
-        address: http://auth:9091/api/verify?rd=https://auth.domain.com/ # replace auth with your authelia container name
-        trustForwardHeader: true
-        authResponseHeaders:
-          - Remote-User
-          - Remote-Groups
-          - Remote-Name
-          - Remote-Email
-  
-    # Authelia basic auth guard
-    auth-basic:
-      forwardauth:
-        address: http://auth:9091/api/verify?auth=basic # replace auth with your authelia container name
-        trustForwardHeader: true
-        authResponseHeaders:
-          - Remote-User
-          - Remote-Groups
-          - Remote-Name
-          - Remote-Email
-
     # Security headers
     securityHeaders:
       headers:
