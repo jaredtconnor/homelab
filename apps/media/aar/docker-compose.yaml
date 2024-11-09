@@ -261,7 +261,18 @@ services:
     restart: unless-stopped  
     networks: 
       - media 
-      - backend
+      - backend  
+
+  reiverr:
+    image: ghcr.io/aleksilassila/reiverr:latest
+    container_name: reiverr
+    ports:
+      - 9494:9494
+    environment:
+      - SECRET=${SECRET} # optional, used to sign JWT tokens for authentication. If not set, sessions will not persist between server restarts. Use a random string.
+    volumes:
+      - ${INSTALL_DIRECTORY}/reiverr:/config
+    restart: unless-stopped
 
   calibre:
     image: linuxserver/calibre
