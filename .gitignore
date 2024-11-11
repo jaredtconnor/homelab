@@ -51,4 +51,5 @@ apps/media/aar/jellyseerr
 apps/media/aar/overseerr 
 apps/media/aar/calibre
 apps/networking/ngnix-proxy-manager/letsencrypt
-apps/media/aar/reiverr/reiverr.sqlite
+apps/media/aar/reiverr/reiverr.sqlite 
+apps/media/aar/reiverr
