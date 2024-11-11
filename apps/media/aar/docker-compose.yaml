@@ -186,8 +186,7 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
     volumes:
-      - ${MEDIA_DIRECTORY}/media/calibre-books:/calibre-books
-      - ${MEDIA_DIRECTORY}/media/books:/books
+      - ${MEDIA_DIRECTORY}:/data
       - ${DOWNLOAD_INSTALL_DIR}:/downloads
       - ${INSTALL_DIRECTORY}/readarr:/config
     ports:
