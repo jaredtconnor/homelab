@@ -73,7 +73,8 @@ services:
       - PGID=${PGID}
       - WEBUI_PORT=8080
     volumes:
-      - ${DOWNLOAD_INSTALL_DIR}:/downloads
+      - ${DOWNLOAD_INSTALL_DIR}:/downloads 
+      - ${TORRENT_INSTALL_DIR}:/data/torrents
       - ${INSTALL_DIRECTORY}/qbittorrent:/config
     restart: unless-stopped
     network_mode: "service:gluetun"
@@ -84,7 +85,7 @@ services:
   rdtclient:
     container_name: rdtclient
     volumes:
-      - '${TORRENT_INSTALL_DIR}/torrents:/data/torrents'
+      - '${TORRENT_INSTALL_DIR}:/data/torrents'
       - '${INSTALL_DIRECTORY}/rdt:/data/db'
     image: rogerfar/rdtclient
     restart: always
@@ -112,8 +113,8 @@ services:
       - ${MEDIA_DIRECTORY}:/data/media
     restart: unless-stopped
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=${PUID}
+      - PGID=${PGID}
     networks:
       - media 
       - backend 
@@ -132,8 +133,8 @@ services:
       - ${MEDIA_DIRECTORY}:/data
     restart: unless-stopped
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=${PUID}
+      - PGID=${PGID}
     networks:
       - media 
       - backend 
@@ -150,8 +151,8 @@ services:
       - ${INSTALL_DIRECTORY}/prowlarr:/config
     restart: unless-stopped
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=${PUID}
+      - PGID=${PGID}
     networks:
       - media 
       - backend 
@@ -170,8 +171,8 @@ services:
       - ${MEDIA_DIRECTORY}:/data
     restart: unless-stopped
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=${PUID}
+      - PGID=${PGID}
     networks:
       - media 
       - backend  
@@ -210,8 +211,8 @@ services:
       - ${MEDIA_DIRECTORY}:/data
     restart: unless-stopped
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=${PUID}
+      - PGID=${PGID}
     networks:
       - media 
       - backend   
@@ -253,6 +254,8 @@ services:
     hostname: jellyseerr 
     environment: 
       - TZ=America/Los_Angeles
+      - PUID=${PUID}
+      - PGID=${PGID}
     ports: 
       - 5055:5055 
     volumes: 
@@ -269,6 +272,8 @@ services:
       - 9494:9494
     environment:
       - SECRET=${SECRET} # optional, used to sign JWT tokens for authentication. If not set, sessions will not persist between server restarts. Use a random string.
+      - PUID=${PUID}
+      - PGID=${PGID}
     volumes:
       - ${INSTALL_DIRECTORY}/reiverr:/config
     restart: unless-stopped
