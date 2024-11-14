@@ -41,10 +41,11 @@ services:
       - OPENVPN_USER=${VPN_USER}
       - OPENVPN_PASSWORD=${VPN_PASSWORD}
       - OPENVPN_CIPHERS=AES-256-GCM
+      - PUID=${PUID}
+      - PGID=${PGID}
     restart: unless-stopped
     networks:
       - media
-      - backend
 
   sabnzbd:
     image: lscr.io/linuxserver/sabnzbd:latest
@@ -215,22 +216,21 @@ services:
       - PGID=${PGID}
     networks:
       - media 
-      - backend   
+      - backend
 
   flaresolverr:
-    image: ghcr.io/flaresolverr/flaresolverr:latest
-    container_name: flaresolverr
+    image: flaresolverr/flaresolverr:latest
+    container_name: flaresolverr    
     environment:
-      - LOG_LEVEL=${LOG_LEVEL:-info}
-      - LOG_HTML=${LOG_HTML:-false}
-      - CAPTCHA_SOLVER=${CAPTCHA_SOLVER:-none}
-      - TZ=America/Los_Angeles
-    ports:
-      - "${PORT:-8191}:8191"
-    restart: unless-stopped
+      - TZ=UTC
+      - LOG_LEVEL=${LOG_LEVEL:-debug}
+      - LOG_HTML=true
+    security_opt:
+      - no-new-privileges:true
+    restart: always
     networks:
-      - media 
-      - backend   
+      - backend 
+      - media
 
   overseerr:
     image: linuxserver/overseerr
