@@ -55,3 +55,4 @@ apps/media/aar/reiverr/reiverr.sqlite
 apps/media/aar/reiverr
 apps/utilities/monitoring/grafana/data
 apps/utilities/monitoring/prometheus/data
+apps/tools/tandoor/mediafiles/recipes

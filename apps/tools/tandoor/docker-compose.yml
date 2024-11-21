@@ -12,7 +12,7 @@ services:
       - ./mediafiles:/opt/recipes/mediafiles
     networks:
       - frontend
-      - storage 
+      - storage
 
   nginx_recipes:
     image: nginx:mainline-alpine
@@ -30,8 +30,7 @@ services:
       - ./mediafiles:/media:ro
     networks:
       - frontend
-      - storage 
-
+      - storage
 
 volumes:
   nginx_config:
