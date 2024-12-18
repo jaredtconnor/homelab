@@ -1,5 +1,4 @@
-services:   
-
+services:
   jellyfin:
     image: lscr.io/linuxserver/jellyfin
     container_name: jellyfin
@@ -11,15 +10,13 @@ services:
       - ${MEDIA_DIRECTORY}/media/movies:/data/movies
       - ${MEDIA_DIRECTORY}/media/tv:/data/tvshows
       - ${INSTALL_DIRECTORY}/jellyfin:/config
+      - ./permissions.sh:/custom-cont-init.d/permissions.sh
     ports:
       - 8096:8096
-    restart: unless-stopped 
+    restart: unless-stopped
     networks:
       - media
 
-  ############################################ 
-  # 
-  ############################################ 
   gluetun:
     image: qmcgaw/gluetun:v3
     container_name: gluetun
@@ -28,11 +25,10 @@ services:
     devices:
       - /dev/net/tun:/dev/net/tun
     ports:
-      - 8888:8888/tcp # HTTP proxy
-      - 8388:8388/tcp # Shadowsocks
-      - 8388:8388/udp # Shadowsocks
-      # other containers ports
-      - "8080:8080"       # qbittorrent
+      - 8888:8888/tcp
+      - 8388:8388/tcp
+      - 8388:8388/udp
+      - "8080:8080"
     volumes:
       - ${INSTALL_DIRECTORY}/gluetun:/config
     environment:
@@ -57,37 +53,36 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${INSTALL_DIRECTORY}/sabnzbd:/config
-      - ${USENET_INSTALL_DIR}:/data/usenet:rw 
+      - ${USENET_INSTALL_DIR}:/data/usenet:rw
+      - ./permissions.sh:/custom-cont-init.d/permissions.sh
     ports:
-      - "8090:8080" # port mapping 
-    restart: unless-stopped 
+      - "8090:8080"
+    restart: unless-stopped
     networks:
-      - media 
+      - media
       - backend
 
-  # qBitorrent is used to download torrents
   qbittorrent:
     image: lscr.io/linuxserver/qbittorrent:4.6.0
     container_name: qbittorrent
     environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
+      - PUID=911
+      - PGID=911
       - WEBUI_PORT=8080
     volumes:
-      - ${DOWNLOAD_INSTALL_DIR}:/downloads 
+      - ${DOWNLOAD_INSTALL_DIR}:/downloads
       - ${TORRENT_INSTALL_DIR}:/data/torrents
       - ${INSTALL_DIRECTORY}/qbittorrent:/config
+      - ./permissions.sh:/custom-cont-init.d/permissions.sh
     restart: unless-stopped
     network_mode: "service:gluetun"
 
-  ############################################ 
-  # 
-  ############################################ 
   rdtclient:
     container_name: rdtclient
     volumes:
       - '${TORRENT_INSTALL_DIR}:/data/torrents'
       - '${INSTALL_DIRECTORY}/rdt:/data/db'
+      - ./permissions.sh:/custom-cont-init.d/permissions.sh
     image: rogerfar/rdtclient
     restart: always
     logging:
@@ -97,14 +92,11 @@ services:
     ports:
       - '6500:6500'
     networks:
-      - media 
-      - backend 
+      - media
+      - backend
 
-  ############################################ 
-  # 
-  ############################################ 
   bazarr:
-    container_name: bazarr 
+    container_name: bazarr
     image: lscr.io/linuxserver/bazarr:latest
     ports:
       - "6767:6767"
@@ -112,19 +104,17 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - ${INSTALL_DIRECTORY}/bazarr:/config
       - ${MEDIA_DIRECTORY}:/data/media
+      - ./permissions.sh:/custom-cont-init.d/permissions.sh
     restart: unless-stopped
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
     networks:
-      - media 
-      - backend 
+      - media
+      - backend
 
-  ############################################ 
-  # 
-  ############################################ 
   lidarr:
-    container_name: lidarr 
+    container_name: lidarr
     image: lscr.io/linuxserver/lidarr:latest
     ports:
       - "8686:8686"
@@ -132,37 +122,33 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - ${INSTALL_DIRECTORY}/lidarr:/config
       - ${MEDIA_DIRECTORY}:/data
+      - ./permissions.sh:/custom-cont-init.d/permissions.sh
     restart: unless-stopped
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
     networks:
-      - media 
-      - backend 
+      - media
+      - backend
 
-  ############################################ 
-  # 
-  ############################################ 
   prowlarr:
-    container_name: prowlarr 
+    container_name: prowlarr
     image: lscr.io/linuxserver/prowlarr:latest
     ports:
       - "9696:9696"
     volumes:
       - ${INSTALL_DIRECTORY}/prowlarr:/config
+      - ./permissions.sh:/custom-cont-init.d/permissions.sh
     restart: unless-stopped
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
     networks:
-      - media 
-      - backend 
+      - media
+      - backend
 
-  ############################################ 
-  # 
-  ############################################ 
   radarr:
-    container_name: radarr 
+    container_name: radarr
     image: lscr.io/linuxserver/radarr:latest
     ports:
       - "7878:7878"
@@ -170,17 +156,15 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - ${INSTALL_DIRECTORY}/radarr:/config
       - ${MEDIA_DIRECTORY}:/data
+      - ./permissions.sh:/custom-cont-init.d/permissions.sh
     restart: unless-stopped
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
     networks:
-      - media 
-      - backend  
-      
-  ############################################ 
-  # 
-  ############################################ 
+      - media
+      - backend
+
   readarr:
     container_name: readarr
     image: lscr.io/linuxserver/readarr:develop
@@ -191,6 +175,7 @@ services:
       - ${MEDIA_DIRECTORY}:/data
       - ${DOWNLOAD_INSTALL_DIR}:/downloads
       - ${INSTALL_DIRECTORY}/readarr:/config
+      - ./permissions.sh:/custom-cont-init.d/permissions.sh
     ports:
       - 8787:8787
     restart: unless-stopped
@@ -198,11 +183,8 @@ services:
       - media
       - backend
 
-  ############################################ 
-  # 
-  ############################################ 
   sonarr:
-    container_name: sonarr 
+    container_name: sonarr
     image: lscr.io/linuxserver/sonarr:latest
     ports:
       - "8989:8989"
@@ -210,17 +192,18 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - ${INSTALL_DIRECTORY}/sonarr:/config
       - ${MEDIA_DIRECTORY}:/data
+      - ./permissions.sh:/custom-cont-init.d/permissions.sh
     restart: unless-stopped
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
     networks:
-      - media 
+      - media
       - backend
 
   flaresolverr:
     image: flaresolverr/flaresolverr:latest
-    container_name: flaresolverr    
+    container_name: flaresolverr
     environment:
       - TZ=UTC
       - LOG_LEVEL=${LOG_LEVEL:-debug}
@@ -229,41 +212,42 @@ services:
       - no-new-privileges:true
     restart: always
     networks:
-      - backend 
+      - backend
       - media
 
   overseerr:
     image: linuxserver/overseerr
     container_name: overseerr
     environment:
-      - PUID=${PUID} # Replace with your user ID
-      - PGID=${PGID} # Replace with your group ID
-      - TZ=America/Los_Angeles # Replace with your timezone
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=America/Los_Angeles
     volumes:
       - ${INSTALL_DIRECTORY}/overseerr:/config
+      - ./permissions.sh:/custom-cont-init.d/permissions.sh
     ports:
       - 5056:5055
-    restart: unless-stopped 
-    networks: 
-      - media 
-      - backend 
+    restart: unless-stopped
+    networks:
+      - media
+      - backend
 
-  jellyseerr: 
-    image: fallenbagel/jellyseerr:latest 
-    container_name: jellyseerr 
-    hostname: jellyseerr 
-    environment: 
+  jellyseerr:
+    image: fallenbagel/jellyseerr:latest
+    container_name: jellyseerr
+    hostname: jellyseerr
+    environment:
       - TZ=America/Los_Angeles
       - PUID=${PUID}
       - PGID=${PGID}
-    ports: 
-      - 5055:5055 
-    volumes: 
-      - ${INSTALL_DIRECTORY}/jellyseerr:/app/config 
-    restart: unless-stopped  
-    networks: 
-      - media 
-      - backend  
+    ports:
+      - 5055:5055
+    volumes:
+      - ${INSTALL_DIRECTORY}/jellyseerr:/app/config
+    restart: unless-stopped
+    networks:
+      - media
+      - backend
 
   reiverr:
     image: ghcr.io/aleksilassila/reiverr:latest
@@ -271,7 +255,7 @@ services:
     ports:
       - 9494:9494
     environment:
-      - SECRET=${SECRET} # optional, used to sign JWT tokens for authentication. If not set, sessions will not persist between server restarts. Use a random string.
+      - SECRET=${SECRET}
       - PUID=${PUID}
       - PGID=${PGID}
     volumes:
@@ -282,18 +266,19 @@ services:
     image: linuxserver/calibre
     container_name: calibre
     environment:
-      - PUID=${PUID} # Replace with your user ID
-      - PGID=${PGID} # Replace with your group ID
-      - TZ=America/Los_Angeles # Replace with your timezone
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=America/Los_Angeles
     volumes:
-      - ${MEDIA_DIRECTORY}/media/books:/config/books # Replace with your Calibre library path 
-      - ${MEDIA_DIRECTORY}/media/calibre-books:/config/calibre-books # Replace with your Calibre library path 
-      - ${DOWNLOAD_INSTALL_DIR}:/downloads # Optional: for downloading books
+      - ${MEDIA_DIRECTORY}/media/books:/config/books
+      - ${MEDIA_DIRECTORY}/media/calibre-books:/config/calibre-books
+      - ${DOWNLOAD_INSTALL_DIR}:/downloads
+      - ./permissions.sh:/custom-cont-init.d/permissions.sh
     ports:
       - 8010:8080
       - 8011:8081
-    networks: 
-      - media 
+    networks:
+      - media
       - backend
 
 networks:
@@ -302,5 +287,4 @@ networks:
     name: backend
   media:
     external: true
-    name: media 
-
+    name: media
